@@ -1,8 +1,4 @@
 const express = require('express');
-const cluster = require('node:cluster');
-
-
-cluster.schedulingPolicy = cluster.SCHED_RR;
 
 const app = express();
 
@@ -23,11 +19,5 @@ app.get('/timer', (req, res) => {
 });
 
 console.log("Server started is...");
-if(cluster.isPrimary){
-  console.log("Master Node has been started");
-  cluster.fork(); // -> create a worker node
-  cluster.fork(); // -> If this scenarios we will create 2 worker(called 2 times)
-} else{
-  console.log("Worker Node has been started");
-  app.listen(3000);
-}
+console.log("Worker Node has been started");
+app.listen(3000);
