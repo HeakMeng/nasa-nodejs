@@ -6,7 +6,8 @@
     "test": "node --test ",
     "test-watch": "node --test --watch",
     "watch": "nodemon src/server.js",
-    "start": "cross-env PORT=5000 node src/server.js"
+    "start": "cross-env PORT=5000 node src/server.js",
+    "cluster": "pm2 start src/server.js -i max"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +16,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "csv-parse": "^6.1.0",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "pm2": "^6.0.14"
   },
   "devDependencies": {
     "cross-env": "^10.0.0",

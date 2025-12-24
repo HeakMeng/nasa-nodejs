@@ -32,7 +32,7 @@ describe('Test POST /launches', () => {
     mission: 'Being Software Engineer',
     rocket : 'F-16 Fighting falcon',
     target: 'New York City',
-    launchDate: ('thymaya')
+    launchDate: ('heakmeng')
   }; 
   test('It should work with 201 response code', async () => {
     const response = await request(app)
@@ -67,7 +67,7 @@ describe('Test POST /launches', () => {
   test('It should catch invalid date',async () => {
     const response = await request(app)
       .post('/launches')
-      .send(launchWithInvalidDate)
+      .send(launchWithInvalidDate)                                          
       .expect('Content-Type', /json/)
       .expect(400);
     deepStrictEqual(response.body,{
